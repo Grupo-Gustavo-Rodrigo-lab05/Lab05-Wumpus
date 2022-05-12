@@ -7,7 +7,8 @@ public class Caverna {
                         {"-", "-", "-", "-"},
                         {"-", "-", "-", "-"}};
     Sala salas[4][4] = new Sala();
+    
     public void criarSala(String x, String y, String tipo){
-        
+
     }
 }
