@@ -11,21 +11,19 @@ public class Montador {
         for(int i = 0; i < cave.length; i++){
             String tipoComp = cave[i][2];
             Componente comp_atual;
-            if(tipoComp.equals("W")) {
-                comp_atual = new Wullumpus();
+            if(!tipoComp.equals("_")) {
+                if (tipoComp.equals("W"))
+                    comp_atual = new Wullumpus();
+                else if (tipoComp.equals("B"))
+                    comp_atual = new Buraco();
+                else if (tipoComp.equals("O"))
+                    comp_atual = new Ouro();
+                else
+                    comp_atual = new Heroi();
+                comp_atual.setCoordenadas(Integer.parseInt(cave[i][0]) - 1, Integer.parseInt(cave[i][1]) - 1);
+                comp_atual.conectaCaverna(caverna);
+                comp_atual.solicitaSala();
             }
-            else if(tipoComp.equals("B")) {
-                comp_atual = new Buraco();
-            }
-            else if(tipoComp.equals("O")) {
-                comp_atual = new Ouro();
-            }
-            else {
-                comp_atual = new Heroi();
-            }
-            comp_atual.setCoordenadas(Integer.parseInt(cave[i][0]), Integer.parseInt(cave[i][1]));
-            comp_atual.conectaCaverna(caverna);
-            comp_atual.solicitaSala();
         }
     }
 }

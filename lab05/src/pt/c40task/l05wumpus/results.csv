@@ -1,13 +1,6 @@
-##b-
-#b--
-b---
-p---
-score: -120
+H--B
+----
+-B-W
+--O-
+score: 10
 status: x
-=====
-##b-
-#b#f
-b--w
-#---
-score: -1210
-status: n

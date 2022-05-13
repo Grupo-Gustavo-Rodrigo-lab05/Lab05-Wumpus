@@ -14,7 +14,7 @@ public class Wullumpus extends Componente{
 
     }
 
-    public void solicitaSala(){
+    public void solicitaSala() {
         caverna.ConectaCompSala(coordenadaX, coordenadaY, this, 'W');
     }
 }
