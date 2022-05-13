@@ -2,7 +2,6 @@ package pt.c40task.l05wumpus;
 
 public class Wullumpus extends Componente{
 
-
     @Override
     public void setCoordenadas(int coordenadaX, int coordenadaY) {
         this.coordenadaX = coordenadaX;
@@ -15,7 +14,7 @@ public class Wullumpus extends Componente{
 
     }
 
-    public void SolicitaSala(){
+    public void solicitaSala(){
         caverna.ConectaCompSala(coordenadaX, coordenadaY, this, 'W');
     }
 }

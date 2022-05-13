@@ -6,4 +6,5 @@ public abstract class Componente {
 
     public abstract void setCoordenadas(int coordenadaX, int coordenadaY);
     public abstract void conectaCaverna(Caverna caverna);
+    public abstract void solicitaSala();
 }

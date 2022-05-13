@@ -9,40 +9,40 @@ import java.util.Vector;
 
 public class Toolkit {
    public static String DIRETORIO = System.getProperty("user.dir") +
-		                            "/src/pt/c40task/l05wumpus/";
-   
+           "/src/pt/c40task/l05wumpus/";
+
    private static Toolkit tk;
-   
+
    private BufferedReader moveStr, caveStr;
    private PrintWriter outputStr;
-   
+
    private boolean firstBoard = true;
-   
+
    public static Toolkit start(String cavePath, String outputPath,
                                String movePath) {
       tk = new Toolkit();
       String caveFile = (cavePath == null)
-            ? DIRETORIO + "cave.csv" : cavePath;
+              ? DIRETORIO + "cave.csv" : cavePath;
       String outputFile = (outputPath == null)
-            ? DIRETORIO + "results.csv" : outputPath;
+              ? DIRETORIO + "results.csv" : outputPath;
       String moveFile = (movePath == null)
-            ? DIRETORIO + "movements.csv" : movePath;
+              ? DIRETORIO + "movements.csv" : movePath;
       System.out.println("files - cave: " + caveFile +
-                         "; output: " + outputFile +
-                         "; movements: " + moveFile);
+              "; output: " + outputFile +
+              "; movements: " + moveFile);
       try {
          tk.caveStr = new BufferedReader(
-               new FileReader(caveFile));
+                 new FileReader(caveFile));
          tk.outputStr = new PrintWriter(
-               new FileWriter(outputFile));
+                 new FileWriter(outputFile));
          tk.moveStr = new BufferedReader(
-               new FileReader(moveFile));
+                 new FileReader(moveFile));
       } catch(IOException erro){
          erro.printStackTrace();
       }
       return tk;
    }
-   
+
    public String[][] retrieveCave() {
       Vector<String[]> v = new Vector<String[]>();
       try {
@@ -58,7 +58,7 @@ public class Toolkit {
       }
       return (String[][])v.toArray(new String[v.size()][]);
    }
-   
+
    public String retrieveMovements() {
       String v = "";
       try {
@@ -73,7 +73,7 @@ public class Toolkit {
       }
       return v;
    }
-   
+
    public void writeBoard(char board[][], int score, char status){
       try {
          if (!firstBoard)
@@ -90,7 +90,7 @@ public class Toolkit {
          erro.printStackTrace();
       }
    }
-   
+
    public void stop() {
       try {
          caveStr.close();

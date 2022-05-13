@@ -15,7 +15,7 @@ public class Heroi extends Componente{
 
     }
 
-    public void SolicitaSala(){
+    public void solicitaSala(){
         caverna.ConectaCompSala(coordenadaX, coordenadaY, this, 'H');
     }
 }

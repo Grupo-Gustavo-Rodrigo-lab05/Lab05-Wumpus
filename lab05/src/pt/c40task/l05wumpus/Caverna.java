@@ -3,12 +3,12 @@ package pt.c40task.l05wumpus;
 public class Caverna {
 
     private char cave[][] = {{'-', '-', '-', '-'},
-                        {'-', '-', '-', '-'},
-                        {'-', '-', '-', '-'},
-                        {'-', '-', '-', '-'}};
+                            {'-', '-', '-', '-'},
+                            {'-', '-', '-', '-'},
+                            {'-', '-', '-', '-'}};
     private Sala[][] salas = new Sala[4][4] ;
 
-    Caverna(){
+    public Caverna(){
         for(int i = 0; i < 4; i++){
             for(int n = 0; n < 4; n++){
                 salas[i][n] = new Sala(i, n);
