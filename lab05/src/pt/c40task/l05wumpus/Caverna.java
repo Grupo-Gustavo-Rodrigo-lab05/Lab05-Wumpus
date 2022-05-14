@@ -15,13 +15,19 @@ public class Caverna {
             }
         }
     }
-    public void ConectaCompSala(int x, int y, Componente comp_atual, char tipo){
-        salas[x][y].concetaComponente(comp_atual);
+    public void conectaCompSala(int x, int y, Componente comp_atual, char tipo){
+        salas[x][y].conectaComponente(comp_atual);
         cave[x][y] = tipo;
-
     }
 
-    public char[][] PrintaCaverna(){
+    public void adicionaEfeito(int x, int y, char tipo){
+        if(tipo == 'W')
+            salas[x][y].adicionaFedor();
+        else
+            salas[x][y].adicionaBrisa();
+    }
+
+    public char[][] printaCaverna(){
         return cave;
     }
 }

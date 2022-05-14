@@ -14,7 +14,7 @@ public class AppWumpus {
       String cave[][] = tk.retrieveCave();
       Montador montador =  new Montador(cave);
 
-      tk.writeBoard(montador.caverna.PrintaCaverna(), 10, 'x');
+      tk.writeBoard(montador.caverna.printaCaverna(), 10, 'x');
 
       System.out.println("=== Caverna");
       for (int l = 0; l < cave.length; l++) {
