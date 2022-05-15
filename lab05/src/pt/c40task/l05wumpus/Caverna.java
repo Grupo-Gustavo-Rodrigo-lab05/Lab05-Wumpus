@@ -18,7 +18,6 @@ public class Caverna {
     }
     public void conectaCompSala(int x, int y, Componente comp_atual, char tipo) {
         salas[y][x].conectaComponente(comp_atual);
-        cave[y][x] = tipo;
     }
 
     public void adicionaEfeito(int x, int y, char tipo) {
