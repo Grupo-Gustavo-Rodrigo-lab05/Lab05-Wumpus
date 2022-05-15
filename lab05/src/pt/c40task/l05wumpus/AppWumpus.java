@@ -13,8 +13,13 @@ public class AppWumpus {
       Toolkit tk = Toolkit.start(arquivoCaverna, arquivoSaida, arquivoMovimentos);
       String cave[][] = tk.retrieveCave();
       Montador montador =  new Montador(cave);
+      montador.criaCaverna();
+      Caverna caverna = montador.getCaverna();
+      Controle controle = montador.getControle();
 
-      tk.writeBoard(montador.caverna.printaCaverna(), 10, 'x');
+      char caveChar[][] = caverna.getMatriz();
+
+      tk.writeBoard(caveChar, 10, 'x');
 
       System.out.println("=== Caverna");
       for (int l = 0; l < cave.length; l++) {
@@ -26,6 +31,19 @@ public class AppWumpus {
       String movements = tk.retrieveMovements();
       System.out.println("=== Movimentos");
       System.out.println(movements);
+
+      for (int i = 0; i < movements.length(); i++) {
+         controle.acao(movements.charAt(i));
+         caveChar = caverna.getMatriz();
+         tk.writeBoard(caveChar, 10, 'x');
+
+         for (int j = 0; j < 4; j++) {
+            for (int k = 0; k < 4; k++)
+               System.out.print(caveChar[j][k]);
+            System.out.println();
+         }
+         System.out.println("=========");
+      }
 
       tk.stop();
    }

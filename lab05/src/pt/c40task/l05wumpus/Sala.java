@@ -2,15 +2,20 @@ package pt.c40task.l05wumpus;
 
 public class Sala {
     int x, y;
-    Componente comp_sala;
-    Boolean revelada, fedor, brisa;
+    private Componente compSala;
+    private Boolean revelada, fedor, brisa;
 
-    Sala(int x, int y) {
+    public Sala(int x, int y) {
         this.x = x;
         this.y = y;
+        this.compSala = null;
         this.revelada = false;
         this.fedor = false;
         this.brisa = false;
+    }
+
+    public Componente getCompSala() {
+        return compSala;
     }
 
     public void adicionaBrisa() {
@@ -21,7 +26,7 @@ public class Sala {
         this.fedor = true;
     }
 
-    public void conectaComponente(Componente comp_sala) {
-        this.comp_sala = comp_sala;
+    public void conectaComponente(Componente compSala) {
+        this.compSala = compSala;
     }
 }

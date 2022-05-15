@@ -6,28 +6,43 @@ public class Caverna {
                             {'-', '-', '-', '-'},
                             {'-', '-', '-', '-'},
                             {'-', '-', '-', '-'}};
-    private Sala[][] salas = new Sala[4][4] ;
+    private Sala[][] salas;
 
-    public Caverna(){
+    public Caverna() {
+        salas = new Sala[4][4];
         for(int i = 0; i < 4; i++){
-            for(int n = 0; n < 4; n++){
-                salas[i][n] = new Sala(i, n);
+            for(int j = 0; j < 4; j++){
+                salas[i][j] = new Sala(i, j);
             }
         }
     }
-    public void conectaCompSala(int x, int y, Componente comp_atual, char tipo){
-        salas[x][y].conectaComponente(comp_atual);
-        cave[x][y] = tipo;
+    public void conectaCompSala(int x, int y, Componente comp_atual, char tipo) {
+        salas[y][x].conectaComponente(comp_atual);
+        cave[y][x] = tipo;
     }
 
-    public void adicionaEfeito(int x, int y, char tipo){
+    public void adicionaEfeito(int x, int y, char tipo) {
         if(tipo == 'W')
-            salas[x][y].adicionaFedor();
+            salas[y][x].adicionaFedor();
         else
-            salas[x][y].adicionaBrisa();
+            salas[y][x].adicionaBrisa();
     }
 
-    public char[][] printaCaverna(){
+    public void movimentaHeroi(int xDestino, int yDestino, Componente heroi) {
+        salas[heroi.coordenadaY][heroi.coordenadaX].conectaComponente(null);
+        salas[yDestino][xDestino].conectaComponente(heroi);
+        heroi.coordenadaX = xDestino;
+        heroi.coordenadaY = yDestino;
+    }
+
+    public char[][] getMatriz() {
+        for (int i = 0; i < 4; i++)
+            for (int j = 0; j < 4; j++) {
+                if (salas[i][j].getCompSala() == null)
+                    cave[i][j] = '_';
+                else
+                    cave[i][j] = salas[i][j].getCompSala().tipo;
+            }
         return cave;
     }
 }
