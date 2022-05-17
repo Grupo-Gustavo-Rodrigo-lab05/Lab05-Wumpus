@@ -42,63 +42,63 @@ status: x
 =====
 ____
 ____
-___W
-____
-score: -1175
-status: x
-=====
-____
-____
-___W
 ___P
-score: -1190
+____
+score: 325
 status: x
 =====
 ____
 ____
-___W
+____
+___P
+score: 310
+status: x
+=====
+____
+____
+____
 __O_
-score: -1205
+score: 295
 status: x
 =====
 ____
 ____
-___W
-__P_
-score: -1205
-status: x
-=====
-____
-____
-__PW
-____
-score: -1220
-status: x
-=====
 ____
 __P_
-___W
+score: 295
+status: x
+=====
 ____
-score: -1235
+____
+__P_
+____
+score: 280
+status: x
+=====
+____
+__P_
+____
+____
+score: 265
 status: x
 =====
 __P_
 ____
-___W
 ____
-score: -1250
+____
+score: 250
 status: x
 =====
 _P__
 ____
-___W
 ____
-score: -1265
+____
+score: 235
 status: x
 =====
 P___
 ____
-___W
 ____
-score: -280
+____
+score: 1220
 status: x

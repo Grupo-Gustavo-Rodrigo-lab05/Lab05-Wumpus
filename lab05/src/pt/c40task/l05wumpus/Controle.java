@@ -1,12 +1,12 @@
 package pt.c40task.l05wumpus;
 
 public class Controle {
-    private Componente heroi;
+    private Heroi heroi;
     int score = 0;
     String nomeJogador;
     char status = 'x';
 
-    public void conectaHeroi(Componente heroi) {
+    public void conectaHeroi(Heroi heroi) {
         this.heroi = heroi;
     }
 

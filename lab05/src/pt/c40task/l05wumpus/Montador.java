@@ -24,25 +24,31 @@ public class Montador {
             int x = Integer.parseInt(cave[i][1]) - 1;
             String tipoComp = cave[i][2];
 
-            Componente comp_atual;
+            //Componente comp_atual = null;
             if(!tipoComp.equals("_")) {
-                if (tipoComp.equals("W"))
-                    comp_atual = new Wumpus(x, y, 'W');
-                else if (tipoComp.equals("B"))
-                    comp_atual = new Buraco(x, y, 'B');
-                else if (tipoComp.equals("O"))
-                    comp_atual = new Ouro(x, y, 'O');
-                else {
-                    comp_atual = new Heroi(x, y, 'P');
-                    controle.conectaHeroi(comp_atual);
+                if (tipoComp.equals("W")) {
+                    Wumpus wumpus = new Wumpus(x, y, 'W');
+                    wumpus.conectaCaverna(caverna);
+                    wumpus.solicitaSala();
+                    wumpus.geraEfeito();
                 }
-
-                comp_atual.conectaCaverna(caverna);
-                comp_atual.solicitaSala();
-                if (tipoComp.equals("W"))
-                    comp_atual.geraEfeito();
-                else if (tipoComp.equals("B"))
-                    comp_atual.geraEfeito();
+                else if (tipoComp.equals("B")) {
+                    Buraco buraco = new Buraco(x, y, 'B');
+                    buraco.conectaCaverna(caverna);
+                    buraco.solicitaSala();
+                    buraco.geraEfeito();
+                }
+                else if (tipoComp.equals("O")) {
+                    Ouro ouro = new Ouro(x, y, 'O');
+                    ouro.conectaCaverna(caverna);
+                    ouro.solicitaSala();
+                }
+                else {
+                    Heroi heroi = new Heroi(x, y, 'P');
+                    heroi.conectaCaverna(caverna);
+                    heroi.solicitaSala();
+                    controle.conectaHeroi(heroi);
+                }
             }
         }
     }
