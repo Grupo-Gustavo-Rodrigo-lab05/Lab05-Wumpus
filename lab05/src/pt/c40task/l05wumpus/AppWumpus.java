@@ -1,5 +1,5 @@
 package pt.c40task.l05wumpus;
-
+import java.util.Scanner;
 public class AppWumpus {
 
    public static void main(String[] args) {
@@ -16,7 +16,9 @@ public class AppWumpus {
       montador.criaCaverna();
       Caverna caverna = montador.getCaverna();
       Controle controle = montador.getControle();
-
+      Scanner keyboard = new Scanner(System.in);
+      String command = keyboard.nextLine();
+      controle.setNomeJogador(command);
       char caveChar[][] = caverna.getMatriz();
 
       tk.writeBoard(caveChar, 10, 'x');
@@ -35,13 +37,23 @@ public class AppWumpus {
       for (int i = 0; i < movements.length(); i++) {
          controle.acao(movements.charAt(i));
          caveChar = caverna.getMatriz();
-         tk.writeBoard(caveChar, 10, 'x');
+         tk.writeBoard(caveChar, controle.getScore(), 'x');
 
          for (int j = 0; j < 4; j++) {
             for (int k = 0; k < 4; k++)
                System.out.print(caveChar[j][k]);
             System.out.println();
          }
+         System.out.println(controle.getNomeJogador());
+         System.out.println(controle.getScore());
+         System.out.println(controle.getFlechas());
+         if(controle.getFlechaEquipada()){
+            System.out.println("Flecha equipada: Sim");
+         }
+         else{
+            System.out.println("Flecha equipada: Não");
+         }
+
          System.out.println("=========");
       }
 

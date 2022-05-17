@@ -17,7 +17,7 @@ public class Caverna {
         }
     }
     public void conectaCompSala(int x, int y, Componente comp_atual, char tipo) {
-        salas[y][x].conectaComponente(comp_atual);
+        salas[y][x].adicionaComponente(comp_atual);
     }
 
     public void adicionaEfeito(int x, int y, char tipo) {
@@ -28,8 +28,9 @@ public class Caverna {
     }
 
     public void movimentaHeroi(int xDestino, int yDestino, Componente heroi) {
-        salas[heroi.coordenadaY][heroi.coordenadaX].conectaComponente(null);
-        salas[yDestino][xDestino].conectaComponente(heroi);
+        salas[heroi.coordenadaY][heroi.coordenadaX].removeComponente('P');
+        salas[yDestino][xDestino].revelaSala();
+        salas[yDestino][xDestino].adicionaComponente(heroi);
         heroi.coordenadaX = xDestino;
         heroi.coordenadaY = yDestino;
     }
@@ -39,9 +40,20 @@ public class Caverna {
             for (int j = 0; j < 4; j++) {
                 if (salas[i][j].getCompSala() == null)
                     cave[i][j] = '_';
+                else if(!salas[i][j].getRevelada()){
+                    cave[i][j] = '_';
+                }
                 else
                     cave[i][j] = salas[i][j].getCompSala().tipo;
             }
         return cave;
+    }
+
+    public void Remove(int x, int y, char tipo){
+        salas[y][x].removeComponente(tipo);
+    }
+
+    public char getComponenteSala(int x, int y){
+        return salas[y][x].getCompSala().tipo;
     }
 }

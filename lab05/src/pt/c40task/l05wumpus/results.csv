@@ -1,62 +1,104 @@
-P__B
 ____
-_B_W
-__O_
+____
+____
+____
 score: 10
 status: x
 =====
-_P_B
+_P__
 ____
-_B_W
-__O_
-score: 10
+____
+____
+score: -15
 status: x
 =====
-__PB
-____
-_B_W
-__O_
-score: 10
-status: x
-=====
-__PB
-____
-_B_W
-__O_
-score: 10
-status: x
-=====
-___B
 __P_
-_B_W
-__O_
-score: 10
+____
+____
+____
+score: -30
 status: x
 =====
-___B
+____
 __P_
-_B_W
-__O_
-score: 10
+____
+____
+score: -45
 status: x
 =====
-__PB
 ____
-_B_W
-__O_
-score: 10
+___P
+____
+____
+score: -60
 status: x
 =====
-_P_B
 ____
-_B_W
-__O_
-score: 10
+___P
+____
+____
+score: -60
 status: x
 =====
-P__B
 ____
-_B_W
+____
+___W
+____
+score: -1175
+status: x
+=====
+____
+____
+___W
+___P
+score: -1190
+status: x
+=====
+____
+____
+___W
 __O_
-score: 10
+score: -1205
+status: x
+=====
+____
+____
+___W
+__P_
+score: -1205
+status: x
+=====
+____
+____
+__PW
+____
+score: -1220
+status: x
+=====
+____
+__P_
+___W
+____
+score: -1235
+status: x
+=====
+__P_
+____
+___W
+____
+score: -1250
+status: x
+=====
+_P__
+____
+___W
+____
+score: -1265
+status: x
+=====
+P___
+____
+___W
+____
+score: -280
 status: x
