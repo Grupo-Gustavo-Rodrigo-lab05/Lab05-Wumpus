@@ -16,6 +16,14 @@ public class Caverna {
             }
         }
     }
+
+    public boolean brisa(int x, int y){
+        return salas[y][x].getBrisa();
+    }
+
+    public boolean fedor(int x, int y){
+        return salas[y][x].getFedor();
+    }
     public void conectaCompSala(int x, int y, Componente comp_atual, char tipo) {
         salas[y][x].adicionaComponente(comp_atual);
     }

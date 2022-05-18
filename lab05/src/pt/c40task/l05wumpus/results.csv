@@ -1,0 +1,69 @@
+____
+____
+____
+____
+score: 0
+status: P
+=====
+P___
+____
+____
+____
+score: 0
+status: P
+=====
+_P__
+____
+____
+____
+score: -15
+status: P
+=====
+_#P_
+____
+____
+____
+score: -30
+status: P
+=====
+_#b_
+__P_
+____
+____
+score: -45
+status: P
+=====
+_#b_
+__#P
+____
+____
+score: -60
+status: P
+=====
+_#b_
+__#P
+____
+____
+score: -60
+status: P
+=====
+_#b_
+__#f
+___P
+____
+score: 325
+status: P
+=====
+_#b_
+__#f
+__P#
+____
+score: 310
+status: P
+=====
+_#b_
+__#f
+_Bf#
+____
+score: -705
+status: L
