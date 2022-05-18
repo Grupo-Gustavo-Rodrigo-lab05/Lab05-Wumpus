@@ -14,7 +14,7 @@ public class AppWumpus {
       String cave[][] = tk.retrieveCave();
 
       //Criacao Montador
-      Montador montador =  new Montador(cave);
+      Montador montador = new Montador(cave);
       montador.criaCaverna();
 
       //Cria a cavrne
@@ -28,11 +28,10 @@ public class AppWumpus {
       controle.setNomeJogador(command);
       char caveChar[][] = caverna.getMatriz();
 
-      tk.writeBoard(caveChar, 0, 'P');
       System.out.println("=== Caverna");
       for (int l = 0; l < cave.length; l++) {
          for (int c = 0; c < cave[l].length; c++)
-            System.out.print(cave[l][c] + ((c < cave[l].length-1) ? ", " : ""));
+            System.out.print(cave[l][c] + ((c < cave[l].length - 1) ? ", " : ""));
          System.out.println();
       }
 
@@ -42,29 +41,24 @@ public class AppWumpus {
 
       //Printa caverna inicial
       System.out.println("Caverna inicial");
+      caveChar[0][0] = 'P';
       for (int j = 0; j < 4; j++) {
          for (int k = 0; k < 4; k++)
-            if(j == 0 && k == 0){
-              System.out.print("P");
-            }
-         else
             System.out.print(caveChar[j][k]);
          System.out.println();
       }
-      System.out.println("Player:" +   controle.getNomeJogador());
+      System.out.println("Player:" + controle.getNomeJogador());
       System.out.println("SCORE:" + controle.getScore());
-      System.out.println("Numero flechas: "+controle.getFlechas());
-      if(controle.getFlechaEquipada()){
+      System.out.println("Numero flechas: " + controle.getFlechas());
+      if (controle.getFlechaEquipada()) {
          System.out.println("Flecha equipada: Sim");
-      }
-      else{
+      } else {
          System.out.println("Flecha equipada: Não");
       }
-      caveChar[0][0] = 'P';
       tk.writeBoard(caveChar, 0, 'P');
 
       //printa as etapas da movimentacao
-      if(movements.length() != 0) {
+      if (movements.length() != 0) {
          for (int i = 0; i < movements.length(); i++) {
             controle.acao(movements.charAt(i));
             caveChar = caverna.getMatriz();
@@ -94,8 +88,7 @@ public class AppWumpus {
             }
             System.out.println("=========");
          }
-      }
-      else {
+      } else {
          command = keyboard.nextLine();
          while (command.charAt(0) != 'q') {
             controle.acao(command.charAt(0));
@@ -143,6 +136,57 @@ public class AppWumpus {
          System.out.println("Volte sempre!");
 
       }
+      tk.stop();
+   }
+
+   public static void executaJogo(String arquivoCaverna, String arquivoSaida) {
+      command = keyboard.nextLine();
+      while (command.charAt(0) != 'q') {
+         controle.acao(command.charAt(0));
+         caveChar = caverna.getMatriz();
+         tk.writeBoard(caveChar, controle.getScore(), controle.getStatus());
+
+         for (int j = 0; j < 4; j++) {
+            for (int k = 0; k < 4; k++)
+               System.out.print(caveChar[j][k]);
+            System.out.println();
+         }
+         System.out.println("Player:" + controle.getNomeJogador());
+         System.out.println("SCORE:" + controle.getScore());
+         System.out.println("Numero flechas: " + controle.getFlechas());
+         if (controle.getFlechaEquipada()) {
+            System.out.println("Flecha equipada: Sim");
+         } else {
+            System.out.println("Flecha equipada: Não");
+         }
+         if (controle.getStatus() == 'L') {
+            System.out.println("Você perdeu =( ...");
+            tk.stop();
+            System.exit(0);
+         } else if (controle.getStatus() == 'W') {
+            System.out.println("Voce ganhou =D !!!");
+            tk.stop();
+            System.exit(0);
+         }
+         System.out.println("=========");
+         command = keyboard.nextLine();
+      }
+      for (int j = 0; j < 4; j++) {
+         for (int k = 0; k < 4; k++)
+            System.out.print(caveChar[j][k]);
+         System.out.println();
+      }
+      System.out.println("Player:" + controle.getNomeJogador());
+      System.out.println("SCORE:" + controle.getScore());
+      System.out.println("Numero flechas: " + controle.getFlechas());
+      if (controle.getFlechaEquipada()) {
+         System.out.println("Flecha equipada: Sim");
+      } else {
+         System.out.println("Flecha equipada: Não");
+      }
+      System.out.println("Volte sempre!");
+
+   }
       tk.stop();
    }
 }

@@ -1,0 +1,104 @@
+P___
+____
+____
+____
+score: 0
+status: P
+=====
+#P__
+____
+____
+____
+score: -15
+status: P
+=====
+##P_
+____
+____
+____
+score: -30
+status: P
+=====
+##b_
+__P_
+____
+____
+score: -45
+status: P
+=====
+##b_
+__#_
+__P_
+____
+score: -60
+status: P
+=====
+##b_
+__#_
+__P_
+____
+score: -60
+status: P
+=====
+##b_
+__#_
+__fP
+____
+score: 325
+status: P
+=====
+##b_
+__#_
+__f#
+___P
+score: 310
+status: P
+=====
+##b_
+__#_
+__f#
+__Of
+score: 295
+status: P
+=====
+##b_
+__#_
+__f#
+__Pf
+score: 295
+status: P
+=====
+##b_
+__#_
+__P#
+__#f
+score: 280
+status: P
+=====
+##b_
+__P_
+__f#
+__#f
+score: 265
+status: P
+=====
+##P_
+__#_
+__f#
+__#f
+score: 250
+status: P
+=====
+#Pb_
+__#_
+__f#
+__#f
+score: 235
+status: P
+=====
+P#b_
+__#_
+__f#
+__#f
+score: 1220
+status: W

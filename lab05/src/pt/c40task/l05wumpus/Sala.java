@@ -18,7 +18,6 @@ public class Sala {
         else{
             this.revelada = false;
         }
-        this.revelada = false;
         this.fedor = false;
         this.brisa = false;
     }
