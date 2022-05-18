@@ -4,7 +4,7 @@ public class Controle {
     private Heroi heroi;
     int score = 0;
     String nomeJogador;
-    char status = 'x';
+    char status = 'P';
 
     public void conectaHeroi(Heroi heroi) {
         this.heroi = heroi;
@@ -57,6 +57,10 @@ public class Controle {
         }
     }
 
+    public char getStatus(){
+        return status;
+    }
+
     public boolean getFlechaEquipada(){
         return heroi.getflechaEquipada();
     }
@@ -77,19 +81,23 @@ public class Controle {
                 }
                 if (matou) {
                     alteraPontuacao(500);
+                    System.out.println("Incrivel aventureiro, voce matou o monstro Wumpus");
 
                 } else {
                     alteraPontuacao(-1000);
-                    //tirar pontuacao e encerrar o codigo//
+                    status = 'L';
+                    //encerrar codigo//
 
                 }
             }
             else if(heroi.caverna.getComponenteSala(xDestino, yDestino) == 'B'){
                 alteraPontuacao(-1000);
+                status = 'L';
                 //Encerrar codigo//
             }
             if(xDestino == 0 && yDestino == 0 && heroi.getOuro()){
                 alteraPontuacao(1000);
+                status = 'W';
                 //finaliza o jogo com vitoria//
             }
 

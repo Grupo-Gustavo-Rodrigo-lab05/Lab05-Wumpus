@@ -31,6 +31,14 @@ public class Sala {
         this.brisa = true;
     }
 
+    public boolean getBrisa(){
+        return brisa;
+    }
+
+    public boolean getFedor(){
+        return fedor;
+    }
+
     public void adicionaFedor() {
         this.fedor = true;
     }

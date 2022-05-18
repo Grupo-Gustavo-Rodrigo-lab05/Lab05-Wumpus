@@ -38,8 +38,16 @@ public class Caverna {
     public char[][] getMatriz() {
         for (int i = 0; i < 4; i++)
             for (int j = 0; j < 4; j++) {
-                if (salas[i][j].getCompSala() == null)
+                if (salas[i][j].getCompSala() == null && !salas[i][j].getRevelada())
                     cave[i][j] = '_';
+                else if(salas[i][j].getCompSala() == null && salas[i][j].getRevelada()) {
+                    if(salas[i][j].getFedor())
+                        cave[i][j] = 'f';
+                    else if ( salas[i][j].getBrisa())
+                        cave[i][j] = 'b';
+                    else
+                        cave[i][j] = '#';
+                }
                 else if(!salas[i][j].getRevelada()){
                     cave[i][j] = '_';
                 }
