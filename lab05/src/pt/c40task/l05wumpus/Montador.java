@@ -52,6 +52,10 @@ public class Montador {
                 }
                 else {
                     n_heroi++;
+                    if(x != 0 || y != 0){
+                        System.out.println("Caverna invalida");
+                        System.exit(0);
+                    }
                     Heroi heroi = new Heroi(x, y, 'P');
                     heroi.conectaCaverna(caverna);
                     heroi.solicitaSala();
