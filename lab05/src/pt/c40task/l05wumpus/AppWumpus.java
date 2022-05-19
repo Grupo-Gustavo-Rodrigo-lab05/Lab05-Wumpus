@@ -16,8 +16,8 @@ public class AppWumpus {
             System.out.print(caveChar[j][k]);
          System.out.println();
       }
-      System.out.println("Player:" + controle.getNomeJogador());
-      System.out.println("SCORE:" + controle.getScore());
+      System.out.println("Player: " + controle.getNomeJogador());
+      System.out.println("SCORE: " + controle.getScore());
       System.out.println("Numero flechas: " + controle.getFlechas());
       if (controle.getFlechaEquipada()) {
          System.out.println("Flecha equipada: Sim");
@@ -33,6 +33,16 @@ public class AppWumpus {
          tk.stop();
          System.exit(0);
       }
+   }
+
+   private static String validaComando(String command, Scanner keyboard) {
+      while (!command.equals("w") && !command.equals("s") &&
+             !command.equals("a") && !command.equals("d") &&
+             !command.equals("k") && !command.equals("c") && !command.equals("q")) {
+         System.out.println("Comando inválido. Por favor digite novamente...");
+         command = keyboard.nextLine();
+      }
+      return command;
    }
 
    public static void executaJogo(String arquivoCaverna, String arquivoSaida, String arquivoMovimentos) {
@@ -58,31 +68,18 @@ public class AppWumpus {
          controle.setNomeJogador("Alcebiades");
       }
 
-      char caveChar[][] = caverna.getMatriz();
-
       String movements = null;
       if(arquivoMovimentos != null) {
          movements = tk.retrieveMovements();
       }
 
+      char caveChar[][] = caverna.getMatriz();
+
       //Printa caverna inicial
       System.out.println("Caverna inicial");
-      caveChar[0][0] = 'P';
-      for (int j = 0; j < 4; j++) {
-         for (int k = 0; k < 4; k++)
-            System.out.print(caveChar[j][k]);
-         System.out.println();
-      }
-      System.out.println("Player:" + controle.getNomeJogador());
-      System.out.println("SCORE:" + controle.getScore());
-      System.out.println("Numero flechas: " + controle.getFlechas());
-      if (controle.getFlechaEquipada()) {
-         System.out.println("Flecha equipada: Sim");
-      } else {
-         System.out.println("Flecha equipada: Não");
-      }
+      printaCaverna(caveChar, controle, tk);
       System.out.println("=====");
-      tk.writeBoard(caveChar, 0, 'P');
+      tk.writeBoard(caveChar, controle.getScore(), controle.getStatus());
 
       //Printa as etapas da movimentação
       if (arquivoMovimentos != null) {
@@ -97,6 +94,7 @@ public class AppWumpus {
       }
       else {
          String command = keyboard.nextLine();
+         command = validaComando(command, keyboard);
          while (command.charAt(0) != 'q') {
             controle.acao(command.charAt(0));
             caveChar = caverna.getMatriz();
@@ -106,6 +104,7 @@ public class AppWumpus {
             System.out.println("=====");
 
             command = keyboard.nextLine();
+            command = validaComando(command, keyboard);
          }
          printaCaverna(caveChar, controle, tk);
          System.out.println("Volte sempre!");

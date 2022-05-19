@@ -5,51 +5,9 @@ ____
 score: 0
 status: P
 =====
-P___
-____
-____
-____
-score: 0
-status: P
-=====
 #P__
 ____
 ____
 ____
 score: -15
 status: P
-=====
-##P_
-____
-____
-____
-score: -30
-status: P
-=====
-##b_
-__P_
-____
-____
-score: -45
-status: P
-=====
-##b_
-__#_
-__P_
-____
-score: -60
-status: P
-=====
-##b_
-__#_
-__P_
-____
-score: -60
-status: P
-=====
-##b_
-__#_
-__fW
-____
-score: -1175
-status: L
