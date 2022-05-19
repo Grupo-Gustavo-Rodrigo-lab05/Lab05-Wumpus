@@ -36,6 +36,9 @@ public class Controle {
         } else if( acao == 'q'){
             //encerra o jogo//
         }
+        else{
+            System.out.println("Acao nao permitida");
+        }
     }
 
     public void setNomeJogador(String nome){
