@@ -1,12 +1,14 @@
 package pt.c40task.l05wumpus;
 
+import javax.swing.*;
+
 public class Controle {
-    private Heroi heroi;
+    private Componente heroi;
     int score = 0;
     String nomeJogador;
     char status = 'P';
 
-    public void conectaHeroi(Heroi heroi) {
+    public void conectaHeroi(Componente heroi) {
         this.heroi = heroi;
     }
 
@@ -33,13 +35,15 @@ public class Controle {
             if (heroi.caverna.getComponenteSala(xDestino, yDestino) == 'O') {
                 heroi.capturaOuro();
             }
-        } else if( acao == 'q'){
-            //encerra o jogo//
         }
     }
 
     public void setNomeJogador(String nome){
         nomeJogador = nome;
+    }
+
+    public void setStatus(char q){
+        this.status = q;
     }
 
     public int getScore(){

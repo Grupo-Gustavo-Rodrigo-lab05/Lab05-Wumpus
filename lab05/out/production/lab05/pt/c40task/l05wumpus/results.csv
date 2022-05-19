@@ -11,3 +11,38 @@ ____
 ____
 score: -15
 status: P
+=====
+##P_
+____
+____
+____
+score: -30
+status: P
+=====
+##b_
+__P_
+____
+____
+score: -45
+status: P
+=====
+##b_
+__#P
+____
+____
+score: -60
+status: P
+=====
+##b_
+__#P
+____
+____
+score: -60
+status: P
+=====
+##b_
+__#f
+___W
+____
+score: -1175
+status: L

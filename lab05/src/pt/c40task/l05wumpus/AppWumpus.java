@@ -10,7 +10,8 @@ public class AppWumpus {
               (args.length > 2) ? args[2] : null);
    }
 
-   private static void printaCaverna(char[][] caveChar, Controle controle, Toolkit tk) {
+   private static void printaCaverna(char[][] caveChar, Controle controle, Toolkit tk, int modo) {
+      Scanner keyboard = new Scanner(System.in);
       for (int j = 0; j < 4; j++) {
          for (int k = 0; k < 4; k++)
             System.out.print(caveChar[j][k]);
@@ -51,7 +52,10 @@ public class AppWumpus {
 
       //Criacao Montador
       Montador montador = new Montador(cave);
-      montador.criaCaverna();
+      if(!montador.criaCaverna()) {
+         tk.stop();
+         System.exit(0);
+      }
 
       //Recebe a caverna
       Caverna caverna = montador.getCaverna();
@@ -77,7 +81,7 @@ public class AppWumpus {
 
       //Printa caverna inicial
       System.out.println("Caverna inicial");
-      printaCaverna(caveChar, controle, tk);
+      printaCaverna(caveChar, controle, tk, 1);
       System.out.println("=====");
       tk.writeBoard(caveChar, controle.getScore(), controle.getStatus());
 
@@ -88,7 +92,7 @@ public class AppWumpus {
             caveChar = caverna.getMatriz();
             tk.writeBoard(caveChar, controle.getScore(), controle.getStatus());
 
-            printaCaverna(caveChar, controle, tk);
+            printaCaverna(caveChar, controle, tk, 0);
             System.out.println("=====");
          }
       }
@@ -100,13 +104,13 @@ public class AppWumpus {
             caveChar = caverna.getMatriz();
             tk.writeBoard(caveChar, controle.getScore(), controle.getStatus());
 
-            printaCaverna(caveChar, controle, tk);
+            printaCaverna(caveChar, controle, tk, 1);
             System.out.println("=====");
 
             command = keyboard.nextLine();
             command = validaComando(command, keyboard);
          }
-         printaCaverna(caveChar, controle, tk);
+         printaCaverna(caveChar, controle, tk, 1);
          System.out.println("Volte sempre!");
          System.out.println("=====");
       }

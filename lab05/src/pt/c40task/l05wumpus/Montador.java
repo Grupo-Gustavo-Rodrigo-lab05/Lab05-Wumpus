@@ -18,7 +18,7 @@ public class Montador {
         return controle;
     }
 
-    public void criaCaverna() {
+    public boolean criaCaverna() {
         int n_buracos = 0;
         int n_wumpus = 0;
         int n_heroi = 0;
@@ -28,27 +28,19 @@ public class Montador {
             int x = Integer.parseInt(cave[i][1]) - 1;
             String tipoComp = cave[i][2];
 
-            //Componente comp_atual = null;
+            Componente comp_atual = null;
             if(!tipoComp.equals("_")) {
                 if (tipoComp.equals("W")) {
                     n_wumpus++;
-                    Wumpus wumpus = new Wumpus(x, y, 'W');
-                    wumpus.conectaCaverna(caverna);
-                    wumpus.solicitaSala();
-                    wumpus.geraEfeito();
+                    comp_atual = new Wumpus(x, y, 'W');
                 }
                 else if (tipoComp.equals("B")) {
                     n_buracos++;
-                    Buraco buraco = new Buraco(x, y, 'B');
-                    buraco.conectaCaverna(caverna);
-                    buraco.solicitaSala();
-                    buraco.geraEfeito();
+                    comp_atual = new Buraco(x, y, 'B');
                 }
                 else if (tipoComp.equals("O")) {
                     n_ouro++;
-                    Ouro ouro = new Ouro(x, y, 'O');
-                    ouro.conectaCaverna(caverna);
-                    ouro.solicitaSala();
+                    comp_atual = new Ouro(x, y, 'O');
                 }
                 else {
                     n_heroi++;
@@ -56,16 +48,18 @@ public class Montador {
                         System.out.println("Caverna invalida");
                         System.exit(0);
                     }
-                    Heroi heroi = new Heroi(x, y, 'P');
-                    heroi.conectaCaverna(caverna);
-                    heroi.solicitaSala();
-                    controle.conectaHeroi(heroi);
+                    comp_atual = new Heroi(x, y, 'P');
+                    controle.conectaHeroi(comp_atual);
                 }
+                comp_atual.conectaCaverna(caverna);
+                comp_atual.solicitaSala();
+                comp_atual.geraEfeito();
             }
         }
         if(n_wumpus > 1|| n_wumpus < 1 || n_buracos > 3 || n_buracos < 2 || n_ouro > 1 || n_ouro < 1 || n_heroi > 2 || n_heroi < 1){
             System.out.println("Caverna invalida");
-            System.exit(0);
+            return false;
         }
+        return true;
     }
 }

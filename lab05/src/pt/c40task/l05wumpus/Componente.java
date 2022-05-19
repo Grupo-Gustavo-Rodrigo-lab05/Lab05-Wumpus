@@ -11,7 +11,6 @@ public class Componente {
         this.coordenadaY = coordenadaY;
         this.tipo = tipo;
     }
-
     public void conectaCaverna(Caverna caverna) {
         this.caverna = caverna;
     }
@@ -19,7 +18,22 @@ public class Componente {
         caverna.conectaCompSala(coordenadaX, coordenadaY, this, tipo);
     }
 
-    //passar pro wumpus e buraco depois//
-
+    //Heroi
+    public void equipaFlecha(){}
+    public boolean getTemFlecha(){
+        return false;
+    }
+    public boolean getOuro(){
+        return false;
+}
+    public void capturaOuro(){}
+    public boolean getflechaEquipada(){
+        return false;
+    }
+    public boolean usaFlecha(){
+        return false;
+    }
+    //Wumpus e buraco
+    public void geraEfeito(){}
 
 }
