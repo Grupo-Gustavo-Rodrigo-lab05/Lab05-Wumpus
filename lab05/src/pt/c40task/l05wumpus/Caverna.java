@@ -24,8 +24,11 @@ public class Caverna {
     public boolean fedor(int x, int y){
         return salas[y][x].getFedor();
     }
-    public void conectaCompSala(int x, int y, Componente comp_atual, char tipo) {
-        salas[y][x].adicionaComponente(comp_atual);
+    public boolean conectaCompSala(int x, int y, Componente comp_atual, char tipo) {
+        if(!salas[y][x].adicionaComponente(comp_atual)){
+            return false;
+        }
+        return true;
     }
 
     public void adicionaEfeito(int x, int y, char tipo) {

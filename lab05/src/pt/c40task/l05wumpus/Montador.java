@@ -4,10 +4,15 @@ public class Montador {
     private String cave[][];
     private Caverna caverna;
     private Controle controle;
-    public Montador(String cave[][]) {
-        this.cave = cave;
+    private Toolkit tk;
+    public Montador(String arg1,String arg2,String arg3) {
         this.caverna = new Caverna();
         this.controle = new Controle();
+        this.tk = Toolkit.start(arg1, arg2, arg3);
+        this.cave = tk.retrieveCave();
+    }
+    public Toolkit getTk(){
+        return tk;
     }
 
     public Caverna getCaverna() {
@@ -52,11 +57,14 @@ public class Montador {
                     controle.conectaHeroi(comp_atual);
                 }
                 comp_atual.conectaCaverna(caverna);
-                comp_atual.solicitaSala();
+                if(!comp_atual.solicitaSala()){
+                    System.out.println("Caverna invalida");
+                    return false;
+                }
                 comp_atual.geraEfeito();
             }
         }
-        if(n_wumpus > 1|| n_wumpus < 1 || n_buracos > 3 || n_buracos < 2 || n_ouro > 1 || n_ouro < 1 || n_heroi > 2 || n_heroi < 1){
+        if(n_wumpus > 1|| n_wumpus < 1 || n_buracos > 3 || n_buracos < 2 || n_ouro > 1 || n_ouro < 1 || n_heroi > 1 || n_heroi < 1){
             System.out.println("Caverna invalida");
             return false;
         }

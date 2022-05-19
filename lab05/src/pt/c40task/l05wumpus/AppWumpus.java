@@ -1,4 +1,5 @@
 package pt.c40task.l05wumpus;
+import javax.tools.Tool;
 import java.util.Scanner;
 
 public class AppWumpus {
@@ -7,7 +8,7 @@ public class AppWumpus {
       AppWumpus.executaJogo(
               (args.length > 0) ? args[0] : null,
               (args.length > 1) ? args[1] : null,
-              (args.length > 2) ? args[2] : null);
+              "/Users/testecompleto/Documents/GitHub/Lab05-Wumpus/lab05/src/pt/c40task/l05wumpus/movements.csv");
    }
 
    private static void printaCaverna(char[][] caveChar, Controle controle, Toolkit tk, int modo) {
@@ -47,11 +48,9 @@ public class AppWumpus {
    }
 
    public static void executaJogo(String arquivoCaverna, String arquivoSaida, String arquivoMovimentos) {
-      Toolkit tk = Toolkit.start(arquivoCaverna, arquivoSaida, arquivoMovimentos);
-      String cave[][] = tk.retrieveCave();
-
       //Criacao Montador
-      Montador montador = new Montador(cave);
+      Montador montador = new Montador( arquivoCaverna, arquivoSaida, arquivoMovimentos);
+      Toolkit tk = montador.getTk();
       if(!montador.criaCaverna()) {
          tk.stop();
          System.exit(0);
@@ -72,10 +71,7 @@ public class AppWumpus {
          controle.setNomeJogador("Alcebiades");
       }
 
-      String movements = null;
-      if(arquivoMovimentos != null) {
-         movements = tk.retrieveMovements();
-      }
+      String movements;
 
       char caveChar[][] = caverna.getMatriz();
 
@@ -87,6 +83,7 @@ public class AppWumpus {
 
       //Printa as etapas da movimentação
       if (arquivoMovimentos != null) {
+         movements = tk.retrieveMovements();
          for (int i = 0; i < movements.length(); i++) {
             controle.acao(movements.charAt(i));
             caveChar = caverna.getMatriz();

@@ -14,8 +14,12 @@ public class Componente {
     public void conectaCaverna(Caverna caverna) {
         this.caverna = caverna;
     }
-    public void solicitaSala() {
-        caverna.conectaCompSala(coordenadaX, coordenadaY, this, tipo);
+    public boolean solicitaSala() {
+
+        if(!caverna.conectaCompSala(coordenadaX, coordenadaY, this, tipo)){
+            return false;
+        }
+        return true;
     }
 
     //Heroi

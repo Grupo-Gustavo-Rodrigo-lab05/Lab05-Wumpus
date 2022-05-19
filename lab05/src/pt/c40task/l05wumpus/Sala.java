@@ -50,13 +50,16 @@ public class Sala {
         return revelada;
     }
 
-    public void adicionaComponente(Componente compSala) {
+    public boolean adicionaComponente(Componente compSala) {
         if(this.compSala[0] == null){
             this.compSala[0] = compSala;
+            return true;
         }
-        else{
+        else if(compSala.tipo == 'P'){
             this.compSala[1] = compSala;
+            return true;
         }
+        return false;
     }
 
     public void removeComponente(char tipo){
